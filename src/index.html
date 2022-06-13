@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+    </head>
+    <body>
+        <script type="javascript">
+            const socket = io('http//:localhost:8080');
+
+            socket.on("message", function(data) {
+                console.log(data);
+            });
+        </script>
+    </body>
+</html>
