@@ -32,7 +32,9 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: backend-build
-        path: .
+        path: |
+          .
+          !node_modules
 
   deploy-dev:
     name: Deploy DEV
