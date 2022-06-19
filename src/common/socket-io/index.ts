@@ -8,8 +8,10 @@ import {
   messageListenerFactory,
 } from '../../listeners';
 import { disconnectListenerFactory } from '../../listeners/disconnect.listener';
-import { NewConnectionData, newConnectionListenerFactory } from '../../listeners/new-connection.listener';
-import { storage } from '../../storage';
+import {
+  NewConnectionData,
+  newConnectionListenerFactory,
+} from '../../listeners/new-connection.listener';
 
 export enum ServerToClientEventsEnum {
   JoinRoom = 'joinRoom',

@@ -5,8 +5,7 @@ import {
 import { storage } from '../storage';
 import { AbstractListener, ListenerFactory } from './listener';
 
-export interface JoinRoomData {
-}
+export interface JoinRoomData {}
 
 export const joinRoomListenerFactory: ListenerFactory = (io, socket) =>
   new JoinRoomListener(io, socket);

@@ -15,7 +15,7 @@ export class DisconnectListener extends AbstractListener {
     console.log(
       'Socket disconnected',
       this.socketId,
-      storage.users[this.socketId],
+      storage.users[this.socketId]
     );
 
     delete storage.users[this.socketId];

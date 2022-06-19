@@ -63,7 +63,10 @@ export abstract class AbstractListener<T = any> {
 
   public bindListener(): void {
     this.socket.on(this.eventName, async (data: T) => {
-      console.log(`Got event "${this.eventName}" from socket "${this.socketId}", data: `, data);
+      console.log(
+        `Got event "${this.eventName}" from socket "${this.socketId}", data: `,
+        data
+      );
 
       try {
         await this.handleEvent(data);

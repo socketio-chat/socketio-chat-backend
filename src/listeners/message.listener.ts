@@ -1,4 +1,7 @@
-import { ClientToServerEventsEnum, ServerToClientEventsEnum } from '../common/socket-io';
+import {
+  ClientToServerEventsEnum,
+  ServerToClientEventsEnum,
+} from '../common/socket-io';
 import { storage } from '../storage';
 import { AbstractListener, ListenerFactory } from './listener';
 
