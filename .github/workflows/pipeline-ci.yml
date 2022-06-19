@@ -7,8 +7,6 @@ on:
 jobs:
   ci-job:
     name: CI job
-    env:
-      BACKEND_HOST: 'localhost:8080'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
