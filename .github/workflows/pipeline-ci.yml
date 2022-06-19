@@ -1,34 +1,30 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Node.js CI
+name: CI pipeline
 
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "*" ]
 
 jobs:
-  build:
-
+  ci-job:
+    name: CI job
+    env:
+      BACKEND_HOST: 'localhost:8080'
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 14.x
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 14.x
     - name: Setup pnpm
       uses: pnpm/action-setup@v2.2.2
       with:
         version: 7.2.1
-    - run: pnpm install
-    - run: pnpm run build
-    
+    - name: Install dependencies
+      run: pnpm install
+    - name: Run static code analizers
+      run: pnpm run lint
+    - name: Run tests
+      run: echo 'No tests'
+    - name: Build
+      run: pnpm run build
