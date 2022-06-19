@@ -36,6 +36,7 @@ jobs:
 
   deploy-dev:
     name: Deploy DEV
+    needs: build
     environment:
       name: dev
     runs-on: ubuntu-latest
