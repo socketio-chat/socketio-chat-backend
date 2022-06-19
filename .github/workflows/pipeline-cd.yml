@@ -28,11 +28,6 @@ jobs:
       run: echo 'No tests'
     - name: Build
       run: pnpm run build
-    - name: Upload build artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: backend-build
-        path: dist
 
   deploy-dev:
     name: Deploy DEV
@@ -42,11 +37,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Download build artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: backend-build
-        path: dist
     - name: Deploy to Heroku
       uses: akhileshns/heroku-deploy@v3.12.12
       with:
