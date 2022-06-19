@@ -1,5 +1,6 @@
 import { server } from './app';
+import { config } from './config';
 
-server.listen(8080, () => {
-  console.log('Running at localhost:8080');
+server.listen(config.port, () => {
+  console.log(`Running at port ${config.port}`);
 });

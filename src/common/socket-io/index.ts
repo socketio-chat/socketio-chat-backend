@@ -12,7 +12,6 @@ import {
   NewConnectionData,
   newConnectionListenerFactory,
 } from '../../listeners/new-connection.listener';
-
 export enum ServerToClientEventsEnum {
   JoinRoom = 'joinRoom',
   Message = 'message',
@@ -50,7 +49,7 @@ export function createIoServer(server: http.Server): void {
     SocketData
   >(server, {
     cors: {
-      origin: 'http://localhost:3000',
+      origin: '*',
       methods: ['GET', 'POST'],
     },
   });

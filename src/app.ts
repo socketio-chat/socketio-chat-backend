@@ -7,15 +7,6 @@ const app = express();
 
 app.use(cors());
 
-app.use((req, res, err, next) => {
-  console.log('Middleware ', req.headers.Origin);
-  if (req.headers.Origin === 'http://localhost:3000') {
-    res.header('Access-Control-Allow-Origin', '*');
-  }
-
-  next();
-});
-
 app.use('/ping', (req, res) => {
   res.send('pong');
 });
