@@ -9,7 +9,19 @@ export class DisconnectListener extends AbstractListener {
   public eventName = null;
 
   public bindListener(): void {
-    this.socket.on('disconnect', this.handleEvent);
+    this.socket.on('disconnect', async () => {
+      console.log(
+        `Got event "disconnect" from socket "${this.socketId}"`,
+        'Storage: ',
+        storage
+      );
+
+      try {
+        await this.handleEvent();
+      } catch (error) {
+        console.error(error.message);
+      }
+    });
   }
 
   public async handleEvent(): Promise<void> {
