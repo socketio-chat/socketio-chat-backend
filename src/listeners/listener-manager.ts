@@ -5,7 +5,7 @@ import {
   ServerToClientEvents,
   SocketData,
 } from '../common/socket-io';
-import { AbstractListener, ListenerFactory } from './listener';
+import { ListenerFactory } from './listener';
 
 export class ListenerManager {
   private readonly io: Server<

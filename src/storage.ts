@@ -1,11 +1,12 @@
-import { ListenerManager } from './listeners';
+export interface User {
+  name: string;
+  room?: string;
+}
 
-interface Storage {
-  users: Record<string, string>;
-  rooms: Record<string, string>;
+export interface Storage {
+  users: Record<string, User>;
 }
 
 export const storage: Storage = {
   users: {},
-  rooms: {},
 };

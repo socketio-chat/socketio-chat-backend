@@ -6,6 +6,7 @@ import {
   ServerToClientEvents,
   SocketData,
 } from '../common/socket-io';
+import { storage } from '../storage';
 
 export interface ListenerFactory {
   (
@@ -65,7 +66,9 @@ export abstract class AbstractListener<T = any> {
     this.socket.on(this.eventName, async (data: T) => {
       console.log(
         `Got event "${this.eventName}" from socket "${this.socketId}", data: `,
-        data
+        data,
+        'Storage: ',
+        storage
       );
 
       try {
